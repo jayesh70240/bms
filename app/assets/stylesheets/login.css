@@ -1,0 +1,35 @@
+.login-pg{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box{
+    margin: 3vw 30vw;
+    width: 400px;
+    height: 500px;
+    background: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 1px solid black;
+} 
+.box .lb{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    margin: 15px;
+    font-weight: 600;
+    position: relative;
+}
+.l-box{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin: 0px 40px;
+    padding: 10px 70px;
+    cursor: pointer;
+    border-radius: 4px;
+}

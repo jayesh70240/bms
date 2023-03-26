@@ -1,0 +1,36 @@
+.btn-red{
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+    margin: 4px;
+}
+.flx-str{
+	display:flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.flx-end{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.txt-style{
+    font-family: 'Oxygen', sans-serif;
+}
+.flx-ctr{
+	display:flex;
+	justify-content: center;
+    align-items: center;
+}
+.flx-spc-btw-ctr{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.badge{
+    font-size: 8px;
+    color: red;
+    display: flex;
+    margin: -9PX -10px 0px -9px;
+    font-weight: 699;
+}
