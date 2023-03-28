@@ -6,30 +6,37 @@
         <input class="srch-box flx-ctr" type="text" placeholder="Search for Movies,Events,Plays,Sports and Activity" aria-label="Search">
       </form>
     </div>
-    <div class="btn-c">
-      <button><%=link_to "Sign in",new_user_registration_path,class:"btn-red" %></button>
-      <button><%=link_to "edit",edit_user_registration_path,class:"btn-red" %></button>
+    <div class="btn-c"> 
+      <% if user_signed_in? %>
+      <button><%=link_to "Edit",edit_path,class:"btn-red" %></button>
+      <%#<button><%=link_to "Sign out",signout_path,method: :delete,class:"btn-red" %>
+      <%= button_to 'Sign Out', signout_path, method: :delete,class:"btn-red" %>
+      <%#= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'logins-link navbar-link-right' %>
+      <% else %>
+      <button><%=link_to "Register",new_user_registration_path,class:"btn-red" %></button>
+
+      <button><%=link_to "Log in",login_path,class:"btn-red" %></button>
+      <% end %>
     </div>
   </div>
-
   <div class="d-nav">
     <div class="nav-2">
       <ul class="flx-str un-l">
-        <li><a href="/movies">Movies</a></li>
-        <li><a href="/stream">Stream<span class="badge">NEW</span></a></li>
-        <li><a class="dis" href="/events">Events</a></li>
-        <li><a href="/plays">Plays</a></li>
-        <li><a href="/sports">Sports</a></li>
-        <li><a href="/activities">Activities</a></li>
-        <li><a href="/buzz">Buzz</a></li>
+        <li class="nav-item"><%=link_to "Movies",movies_path,class: "nav-link" %></li>
+        <li class="nav-item"><%=link_to "Stream",stream_path,class: "nav-link" %></li>
+        <li class="nav-item"><%=link_to "Events",events_path,class: "nav-link" %></li>
+        <li class="nav-item"><%=link_to "Plays",plays_path,class: "nav-link" %></li>
+        <li class="nav-item"><%=link_to "Sports",sports_path,class: "nav-link" %></li>
+        <li class="nav-item"><%=link_to "Activities",activities_path,class: "nav-link" %></li>
+        <li class="nav-item"><%=link_to "Buzz",buzz_path,class: "nav-link" %></li>
       </ul>
     </div>
     <div class="container-c">
       <ul class="flx-end">
-        <li><a href="/listyourshow">ListYourShow</a></li>
-        <li><a href="/corporates">Corporates</a></li>
-        <li><a href="/offers">Offers</a></li>
-        <li><a href="/giftcards">Gift Cards</a></li>
+        <li class="nav-item pull md-right "><%=link_to "Listyourshow",listyourshow_path,class: "nav-link" %></li>
+        <li class="nav-item pull md-right "><%=link_to "Corporates",corporates_path,class: "nav-link" %></li>
+        <li class="nav-item pull md-right "><%=link_to "Offers",offers_path,class: "nav-link" %></li>
+        <li class="nav-item pull md-right "><%=link_to "Giftcards",giftcards_path,class: "nav-link" %></li>
       </ul>
     </div>
   </div>

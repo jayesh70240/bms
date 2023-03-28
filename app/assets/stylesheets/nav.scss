@@ -49,7 +49,7 @@ nav form input{
     font-size: 12px;
 }
 .nav-2 un-l,.container-c ul{
-    height: 40px;
+    height: 1vw;
     background-color: rgb(34, 37, 57);
     list-style:none;
 }
@@ -59,7 +59,9 @@ nav form input{
     color: rgb(204, 204, 204); 
 }
 .nav-2 .un-l{
-    width: 53vw;   
+    width: 53vw;
+    padding: 5px 12px;
+    height: 42px; 
 }
 .container-c ul{
     width: 40vw;

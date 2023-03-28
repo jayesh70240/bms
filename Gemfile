@@ -40,7 +40,7 @@ gem "devise", "~> 4.9"
 
 # bootstrap
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.5', '>= 4.5.1'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
