@@ -12,10 +12,13 @@
       <%#<button><%=link_to "Sign out",signout_path,method: :delete,class:"btn-red" %>
       <%= button_to 'Sign Out', signout_path, method: :delete,class:"cbtn-red" %>
       <%#= link_to 'Sign Out', signout_path, method: :delete, class: 'btn-red' %>
+          <button><%=link_to "Admin",admin_root_path,class:"cbtn-red" %></button>
       <% else %>
       <button><%=link_to "Register",new_user_registration_path,class:"cbtn-red" %></button>
 
-      <button><%=link_to "Log in",login_path,class:"cbtn-red" %></button>
+      <button><%=link_to "Log in",login_path,class:"cbtn-red" %></button> 
+      <%# if @user.authorized? model: adminauthorization%>
+        <%# end %>
       <% end %>
     </div>
   </div>
