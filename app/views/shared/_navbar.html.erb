@@ -8,14 +8,14 @@
     </div>
     <div class="btn-c"> 
       <% if user_signed_in? %>
-      <button><%=link_to "Edit",edit_path,class:"btn-red" %></button>
+      <button><%=link_to "Edit",edit_path,class:"cbtn-red" %></button>
       <%#<button><%=link_to "Sign out",signout_path,method: :delete,class:"btn-red" %>
-      <%= button_to 'Sign Out', signout_path, method: :delete,class:"btn-red" %>
-      <%#= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'logins-link navbar-link-right' %>
+      <%= button_to 'Sign Out', signout_path, method: :delete,class:"cbtn-red" %>
+      <%#= link_to 'Sign Out', signout_path, method: :delete, class: 'btn-red' %>
       <% else %>
-      <button><%=link_to "Register",new_user_registration_path,class:"btn-red" %></button>
+      <button><%=link_to "Register",new_user_registration_path,class:"cbtn-red" %></button>
 
-      <button><%=link_to "Log in",login_path,class:"btn-red" %></button>
+      <button><%=link_to "Log in",login_path,class:"cbtn-red" %></button>
       <% end %>
     </div>
   </div>
