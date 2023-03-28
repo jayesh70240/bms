@@ -11,11 +11,14 @@
   </head>
 
   <body>
+    <!-- Header -->
     <%= render partial: "shared/navbar" %>
-    <% flash.each do|name,msg|%>
-      <%= content_tag(:div,msg,class:"alert alert-info #{name}") %>
-    <% end %>
+    <%= render partial: "shared/flash" %>
+
+    <!-- Body -->
     <%= yield %>
+
+    <!-- Footer -->
     
   </body>
 </html>
