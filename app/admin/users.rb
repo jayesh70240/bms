@@ -29,6 +29,7 @@ ActiveAdmin.register User do
     selectable_column
     column :email 
     column :admin
+    actions
   end
     
 end
