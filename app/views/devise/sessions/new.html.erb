@@ -1,0 +1,45 @@
+  <h2>Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+<tb>
+  <tr>
+    <div class = "login-pg">
+      <div class = "box">
+        <label class="lb">Get Started</label>
+        
+          <div class="l-box">
+            <%=image_tag(src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/16px-Google_%22G%22_Logo.svg.png")%>
+            <%= link_to "Continue with Google","https://accounts.google.com/v3/signin/identifier?dsh=S-1895714471%3A1668946867786479&continue=https%3A%2F%2Faccounts.google.com%2F&followup=https%3A%2F%2Faccounts.google.com%2F&passive=1209600&flowName=GlifWebSignIn&flowEntry=ServiceLogin&ifkv=ARgdvAu4iW7_d2W34pYf54GVKRNN8iLFvR0VVWDLFsEMmKizWJHpCLbfcvKSHG0Vx5ctrOc7dJyqew",:target => "Google" ,class:"google-lb"%>
+          </div></br>
+          <div class="l-box"> 
+            <%= link_to "Continue with Email","https://webmail.au.syrahost.com/",:target => "Email" ,class:"email-lb"%>
+          </div></br> 
+          <div class="l-box"> 
+            <%= link_to "Continue with Apple","",:target => "Apple" ,class:"email-lb"%>
+          </div></br>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+          <div class="field">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
+          <% if devise_mapping.rememberable? %>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+          <div class="actions">
+            <%= f.submit "Log in" %>
+          </div>
+        
+      </div>
+    </div>
+  </tr>
+</tb>
+<% end %>
+
+<%= render "devise/shared/links" %>

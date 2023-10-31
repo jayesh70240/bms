@@ -1,0 +1,12 @@
+<%= render "shared/flash"%>
+<h1>Movie List</h1>
+
+<% @movies.each do |movie| %>
+  <p>Title: <%= movie.title %></p>
+  <p>Category: <%= movie.category.category_type %></p>
+  <p>Cinema: <%= movie.cinema.cinema_type %></p>
+  <%= link_to "Book Ticket", new_booking_path(movie_id: movie.id), class: "btn btn-primary" %>
+<% end %>
+
+
+	

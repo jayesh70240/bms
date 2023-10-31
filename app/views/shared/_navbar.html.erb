@@ -1,0 +1,44 @@
+<nav class="navbar-c">
+  <div class="u-nav flx-ctr">
+    <div class="nav-1 ">
+      <%= link_to "#{image_tag("logo.png",{:style => "width:147px;"})}".html_safe, root_path,class:"logo" %>
+        <form action="" class="srch-bar flx-ctr">
+          <input class="srch-box flx-ctr" type="text" placeholder="Search for Movies,Events,Plays,Sports and Activity" aria-label="Search">
+        </form>
+    </div>
+    <div class="btn-c">
+      <% if user_signed_in? %>
+          <button><%=link_to "Edit",edit_path,class:"cbtn-red" %></button>
+          <button><%=link_to "My bookings",cart_user_path(:id),class:"cbtn-red" %></button>
+          <%= button_to 'Sign Out', signout_path, method: :delete,class:"cbtn-red" %>
+            <% if current_user.admin? %>
+              <button><%=link_to "Admin",admin_root_path,class:"cbtn-red" %></button>
+            <% end %>
+      <% else %>
+            <button><%=link_to "Register",new_user_registration_path,class:"cbtn-red" %></button>
+            <button><%=link_to "Log in",login_path,class:"cbtn-red" %></button>
+      <% end %>
+    </div>
+  </div>
+  <div class="d-nav">
+    <div class="nav-2">
+      <ul class="flx-str un-l">
+        <li class="nav-item"><%=link_to "Movies",movies_list_path,class: "nav-link" %></li>
+        <li class="nav-item"><%=link_to "Stream",stream_path,class: "nav-link" %></li>
+        <li class="nav-item"><%=link_to "Events",events_path,class: "nav-link" %></li>
+        <li class="nav-item"><%=link_to "Plays",plays_path,class: "nav-link" %></li>
+        <li class="nav-item"><%=link_to "Sports",sports_path,class: "nav-link" %></li>
+        <li class="nav-item"><%=link_to "Activities",activities_path,class: "nav-link" %></li>
+        <li class="nav-item"><%=link_to "Buzz",buzz_path,class: "nav-link" %></li>
+      </ul>
+    </div>
+    <div class="container-c">
+      <ul class="flx-end">
+        <li class="nav-item pull md-right "><%=link_to "Listyourshow",listyourshow_path,class: "nav-link" %></li>
+        <li class="nav-item pull md-right "><%=link_to "Corporates",corporates_path,class: "nav-link" %></li>
+        <li class="nav-item pull md-right "><%=link_to "Offers",offers_path,class: "nav-link" %></li>
+        <li class="nav-item pull md-right "><%=link_to "Giftcards",giftcards_path,class: "nav-link" %></li>
+      </ul>
+    </div>
+  </div>
+</nav>

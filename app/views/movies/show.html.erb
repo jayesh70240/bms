@@ -1,0 +1,9 @@
+<h2>Bookings for <%= @movief.title %></h2>
+<ul>
+  <% @movief.bookings.each do |booking| %>
+    <li>
+      Booking ID: <%= booking.id %><br>
+      User: <%= booking.user.email %>
+    </li>
+  <% end %>
+</ul>

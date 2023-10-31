@@ -1,0 +1,10 @@
+
+<h1>Book Ticket</h1>
+<%# <p>Title: <%= @movie.title %></p> %>
+<p>Category: <%= @movie.category.category_type %></p>
+<p>Cinema: <%= @movie.cinema.cinema_type %></p>
+
+<%= form_with(model: @booking, local: true) do |form| %>
+  <%= form.hidden_field :movie_id %>
+  <%= form.submit "Confirm Booking", class: "btn btn-primary" %>
+<% end %>
