@@ -2,18 +2,8 @@
 
 one:
   title: MyString
-  duration: 1
-  cost: 1
-  language: MyString
   description: MyText
-  category: one
-  cinema: one
 
 two:
   title: MyString
-  duration: 1
-  cost: 1
-  language: MyString
   description: MyText
-  category: two
-  cinema: two

@@ -1,0 +1,37 @@
+<%= form_with(model: @movie, local: true, html: { class: 'bookmyshow-form' }) do |form| %>
+  <% if @movie.errors.any? %>
+    <div id="error_explanation" class="bookmyshow-error">
+      <h2><%= pluralize(@movie.errors.count, 'error') %> prohibited this movie from being saved:</h2>
+
+      <ul>
+        <% @movie.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= form.label :picture %>
+    <%= form.file_field :picture %>
+  </div>
+
+  <div class="bookmyshow-field">
+    <%= form.label :title, class: 'bookmyshow-label' %>
+    <%= form.text_field :title, class: 'bookmyshow-input' %>
+  </div>
+
+  <div class="bookmyshow-field">
+    <%= form.label :description, class: 'bookmyshow-label' %>
+    <%= form.text_area :description, class: 'bookmyshow-textarea' %>
+  </div>
+
+  <div class="bookmyshow-field">
+    <%= form.label :available_seats, class: 'bookmyshow-label' %>
+    <%= form.text_field :available_seats, class: 'bookmyshow-input' %>
+  </div>
+
+  <div class="bookmyshow-actions">
+    <%= form.submit 'Create Movie', class: 'bookmyshow-button' %>
+  </div>
+<% end %>

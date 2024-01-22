@@ -1,9 +1,15 @@
-<h2>Bookings for <%= @movief.title %></h2>
-<ul>
-  <% @movief.bookings.each do |booking| %>
-    <li>
-      Booking ID: <%= booking.id %><br>
-      User: <%= booking.user.email %>
-    </li>
-  <% end %>
-</ul>
+<% if @movie.picture.attached? %>
+  <%= image_tag @movie.picture %>
+<% end %>
+
+<h1>Title: <%= @movie&.title %></h1>
+
+<p>Description: <%= @movie&.description %></p>
+
+<%= link_to 'Back to Movies', movies_path %>
+
+<% if user_signed_in? && @movie.present? %>
+  <%= render 'bookings/form', movie: @movie, booking: @booking %>
+<% else %>
+  <%= link_to 'Sign in to make a booking', new_user_session_path %>
+<% end %>

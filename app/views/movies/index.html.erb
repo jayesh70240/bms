@@ -1,0 +1,13 @@
+<h1>All Movies</h1>
+
+<% @movies.each do |movie| %>
+  <div>
+    <% if movie.picture.attached? %>
+      <%= image_tag movie.picture.variant(resize: '100x100') %>
+    <% end %>
+    <h2>Title:<%= movie.title %></h2>
+    <p>Description:<%= movie.description %></p>
+    <p>Available Seats:<strong><%= movie.available_seats %></strong></p>
+    <%= link_to 'View Details', movie %>
+  </div><br>
+<% end %>

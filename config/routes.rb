@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     get "edit", to: "devise/registrations#edit"
   end
 
-  root'main#index'
-  get "/movies_list", to: "bookings#index"
+  root 'main#index'
+  get "/movies_list", to: "movies#index"
   get "/stream", to: "main#stream"
   get "/events", to: "main#events"
   get "/plays", to: "main#plays"
@@ -19,14 +19,12 @@ Rails.application.routes.draw do
   get "/corporates", to: "main#corporates"
   get "/offers", to: "main#offers"
   get "/giftcards", to: "main#giftcards"
-  get"ticketbook", to: "main#ticketbook"
+  get "ticketbook", to: "main#ticketbook"
 
-  resources :bookings, only: [:index, :new, :create]
-  get '/users_booking', to: 'users#users_booking'
-
-  resources :users do
-    get 'cart', on: :member
+  resources :movies do
+    post 'book', on: :member
+    resources :bookings, only: [:new, :create]
   end
 
-  # resources :movies, only: [:show]
+  resources :bookings, only: [:index, :destroy]
 end

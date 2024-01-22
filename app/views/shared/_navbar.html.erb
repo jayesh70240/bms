@@ -9,11 +9,14 @@
     <div class="btn-c">
       <% if user_signed_in? %>
           <button><%=link_to "Edit",edit_path,class:"cbtn-red" %></button>
-          <button><%=link_to "My bookings",cart_user_path(:id),class:"cbtn-red" %></button>
+          <button><%=link_to "your Booking",bookings_path,class:"cbtn-red" %></button>
+          
           <%= button_to 'Sign Out', signout_path, method: :delete,class:"cbtn-red" %>
             <% if current_user.admin? %>
               <button><%=link_to "Admin",admin_root_path,class:"cbtn-red" %></button>
-            <% end %>
+              <button><%=link_to "Create Movie",new_movie_path,class:"cbtn-red" %></button>
+              
+              <% end %>
       <% else %>
             <button><%=link_to "Register",new_user_registration_path,class:"cbtn-red" %></button>
             <button><%=link_to "Log in",login_path,class:"cbtn-red" %></button>

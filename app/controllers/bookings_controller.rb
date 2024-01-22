@@ -1,30 +1,41 @@
 class BookingsController < ApplicationController
-  def index
-    @movies = Movie.all
-  end
+    before_action :authenticate_user!
+    before_action :set_movie, only: [:new, :create]
 
-  def new
-    @booking = Booking.new
-    @movie = Movie.find(params[:movie_id])
-  end
-
-  def create
-    @booking = Booking.new(booking_params)
-    if user_signed_in?
-      @booking.user_id = current_user.id
+  
+    def index
+      @bookings = current_user.bookings
+    end
+  
+    def new
+      @booking = Booking.new
+    end
+  
+    def create
+      @booking = current_user.bookings.new(booking_params.merge(movie: @movie))
+      
+  
       if @booking.save
-        redirect_to bookings_path, notice: 'Your Booking is successful'
+        redirect_to bookings_path, notice: 'Booking was successfully created.'
+        UserMailer.booking_confirmation(current_user, @booking).deliver_now
       else
         render :new
       end
-    else
-      redirect_to login_path
     end
-  end
+  
+    def destroy
+      @booking = current_user.bookings.find(params[:id])
+      @booking.destroy
+      redirect_to bookings_path, notice: 'Booking was successfully canceled.'
+    end
 
-  private
+    private
 
-  def booking_params
-    params.require(:booking).permit(:movie_id)
-  end
+    def set_movie
+     @movie = Movie.find(params[:movie_id])
+    end
+
+    def booking_params
+      params.require(:booking).permit(:date)
+    end
 end
